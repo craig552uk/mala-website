@@ -6,6 +6,12 @@ permalink: /changelog/
 
 # mala-editor
 
+## 0.12.3
+
+### Patch Changes
+
+- 0b65a48: fix(ci): publish releases to public mala-website repo for accessible download links
+
 ## 0.12.2
 
 ### Patch Changes
