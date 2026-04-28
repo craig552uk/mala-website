@@ -44,7 +44,7 @@ jobs:
         env:
           VERSION: ${{ steps.info.outputs.version }}
           DATE: ${{ steps.info.outputs.date }}
-          RELEASES_BASE: https://github.com/craig552uk/mala-editor/releases/download
+          RELEASES_BASE: https://github.com/craig552uk/mala-website/releases/download
         run: |
           POST_FILE="src/posts/releases/v${VERSION}.md"
           cat > "$POST_FILE" << FRONTMATTER
