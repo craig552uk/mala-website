@@ -1,0 +1,17 @@
+---
+layout: layouts/page.njk
+title: Blog
+permalink: /blog/
+---
+
+<ul class="post-list">
+  {% for post in collections.releases %}
+    <li class="post-list-item">
+      <a href="{{ post.url }}">
+        <span class="post-version">v{{ post.data.version }}</span>
+        <span class="post-title">{{ post.data.title }}</span>
+        <time datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+      </a>
+    </li>
+  {% endfor %}
+</ul>

@@ -1,0 +1,397 @@
+/* ============================================================
+   Design tokens — One Dark Pro palette
+   ============================================================ */
+:root {
+  --bg:        #282c34;
+  --bg-alt:    #21252b;
+  --bg-card:   #2c313c;
+  --border:    #3e4451;
+  --text:      #abb2bf;
+  --text-dim:  #636d83;
+  --text-head: #e06c75;
+  --accent:    #61afef;
+  --accent-h:  #528bff;
+  --green:     #98c379;
+  --yellow:    #e5c07b;
+  --purple:    #c678dd;
+
+  --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+
+  --radius:    6px;
+  --max-w:     860px;
+  --gap:       1.5rem;
+}
+
+/* ============================================================
+   Reset / base
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--accent-h);
+  text-decoration: underline;
+}
+
+h1, h2, h3, h4 {
+  color: var(--text-head);
+  line-height: 1.2;
+}
+
+h1 { font-size: 2rem;   margin-bottom: 0.5rem; }
+h2 { font-size: 1.4rem; margin: 2rem 0 0.75rem; }
+h3 { font-size: 1.1rem; margin: 1.5rem 0 0.5rem; }
+
+p { margin-bottom: 1rem; }
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+code {
+  font-family: var(--font-mono);
+  background: var(--bg-alt);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  font-size: 0.88em;
+}
+
+pre {
+  background: var(--bg-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem 1.25rem;
+  overflow-x: auto;
+  margin-bottom: 1rem;
+}
+
+pre code {
+  background: none;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--border);
+  margin: 2rem 0;
+}
+
+/* ============================================================
+   Layout
+   ============================================================ */
+.site-header {
+  background: var(--bg-alt);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gap);
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 3.25rem;
+}
+
+.nav-logo {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-head);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.nav-logo:hover { color: var(--text-head); text-decoration: none; }
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin: 0;
+  padding: 0;
+  margin-left: auto;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text);
+  font-size: 0.9rem;
+  transition: color 0.15s;
+}
+
+.nav-links a:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.nav-links svg {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+.site-main {
+  flex: 1;
+  max-width: var(--max-w);
+  width: 100%;
+  margin: 0 auto;
+  padding: 3rem var(--gap);
+}
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  text-align: center;
+  padding: 1.25rem var(--gap);
+  color: var(--text-dim);
+  font-size: 0.85rem;
+}
+
+/* ============================================================
+   Hero
+   ============================================================ */
+.hero {
+  text-align: center;
+  padding: 4rem 0 3rem;
+}
+
+.hero-title {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-tagline {
+  font-size: 1.15rem;
+  color: var(--text-dim);
+  margin-bottom: 2.5rem;
+}
+
+.version-note {
+  margin-top: 1.25rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+/* ============================================================
+   Download buttons
+   ============================================================ */
+.download-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg-card);
+  color: var(--text);
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+
+.download-btn:hover {
+  border-color: var(--accent);
+  background: var(--bg-alt);
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.download-btn--primary {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.download-btn--primary:hover {
+  background: var(--accent);
+  color: var(--bg);
+}
+
+.download-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.download-ext {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  font-family: var(--font-mono);
+}
+
+.download-btn:hover .download-ext {
+  color: inherit;
+}
+
+/* ============================================================
+   Release card (home page)
+   ============================================================ */
+.latest-release {
+  margin-top: 3rem;
+}
+
+.release-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+
+.release-card:hover {
+  border-color: var(--accent);
+  text-decoration: none;
+  color: var(--text);
+}
+
+.release-card-version {
+  font-family: var(--font-mono);
+  color: var(--green);
+  font-size: 0.95rem;
+}
+
+.release-card-date {
+  color: var(--text-dim);
+  font-size: 0.875rem;
+  margin-left: auto;
+}
+
+.release-card svg {
+  width: 16px;
+  height: 16px;
+  color: var(--text-dim);
+}
+
+/* ============================================================
+   Blog / post list
+   ============================================================ */
+.post-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.post-list-item a {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color 0.15s;
+}
+
+.post-list-item a:hover {
+  border-color: var(--accent);
+  text-decoration: none;
+  color: var(--text);
+}
+
+.post-version {
+  font-family: var(--font-mono);
+  color: var(--green);
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+
+.post-title {
+  flex: 1;
+}
+
+.post-list-item time {
+  color: var(--text-dim);
+  font-size: 0.8rem;
+  white-space: nowrap;
+  margin-left: auto;
+}
+
+/* ============================================================
+   Release post
+   ============================================================ */
+.release-header {
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.5rem;
+}
+
+.release-date {
+  color: var(--text-dim);
+  font-size: 0.9rem;
+}
+
+.download-buttons {
+  margin-bottom: 3rem;
+}
+
+.download-buttons .download-grid {
+  justify-content: flex-start;
+}
+
+.release-notes h2 {
+  margin-top: 0;
+}
+
+/* ============================================================
+   Page content (generic)
+   ============================================================ */
+.page-content h1 {
+  margin-bottom: 1.5rem;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 600px) {
+  .hero-title { font-size: 2rem; }
+  .download-grid { flex-direction: column; }
+  .download-btn { justify-content: center; }
+  .nav-links { gap: 1rem; }
+  .post-list-item time { display: none; }
+  .release-card-date { display: none; }
+}

@@ -1,0 +1,35 @@
+---
+layout: layouts/base.njk
+---
+<div class="release-post">
+  <header class="release-header">
+    <h1>{{ title }}</h1>
+    <time class="release-date" datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+  </header>
+
+  <section class="download-buttons">
+    <h2>Download</h2>
+    <div class="download-grid">
+      <a class="download-btn download-btn--primary" href="{{ downloads.mac_dmg }}" download>
+        <i data-lucide="monitor-down"></i>
+        macOS (Apple Silicon)
+        <span class="download-ext">.dmg</span>
+      </a>
+      <a class="download-btn" href="{{ downloads.mac_dmg_x64 }}" download>
+        <i data-lucide="monitor-down"></i>
+        macOS (Intel)
+        <span class="download-ext">.dmg</span>
+      </a>
+      <a class="download-btn" href="{{ downloads.win_exe }}" download>
+        <i data-lucide="monitor-down"></i>
+        Windows
+        <span class="download-ext">.exe</span>
+      </a>
+    </div>
+  </section>
+
+  <section class="release-notes">
+    <h2>What's new</h2>
+    {{ content | safe }}
+  </section>
+</div>

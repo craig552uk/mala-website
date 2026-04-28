@@ -1,0 +1,102 @@
+name: On Release
+
+on:
+  repository_dispatch:
+    types: [mala-release]
+
+jobs:
+  create-release-post:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Extract release info
+        id: info
+        run: |
+          VERSION="${{ github.event.client_payload.version }}"
+          DATE="${{ github.event.client_payload.date }}"
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          echo "date=$DATE" >> "$GITHUB_OUTPUT"
+
+      - name: Extract changelog section
+        id: changelog
+        run: |
+          VERSION="${{ steps.info.outputs.version }}"
+          PAYLOAD_CHANGELOG=$(cat << 'PAYLOAD_EOF'
+          ${{ toJson(github.event.client_payload.changelog) }}
+          PAYLOAD_EOF
+          )
+          # Write full CHANGELOG to temp file (strip surrounding JSON quotes)
+          echo "$PAYLOAD_CHANGELOG" | python3 -c "
+          import sys, json
+          data = sys.stdin.read().strip()
+          print(json.loads(data))
+          " > /tmp/CHANGELOG.md
+
+          # Extract the section for this version using awk
+          awk "/^## $VERSION/{found=1; next} found && /^## /{exit} found{print}" /tmp/CHANGELOG.md > /tmp/section.md
+          echo "section_file=/tmp/section.md" >> "$GITHUB_OUTPUT"
+
+      - name: Create release post
+        env:
+          VERSION: ${{ steps.info.outputs.version }}
+          DATE: ${{ steps.info.outputs.date }}
+          RELEASES_BASE: https://github.com/craig552uk/mala-editor/releases/download
+        run: |
+          POST_FILE="src/posts/releases/v${VERSION}.md"
+          cat > "$POST_FILE" << FRONTMATTER
+          ---
+          layout: layouts/release.njk
+          title: "v${VERSION} Release Notes"
+          version: "${VERSION}"
+          date: ${DATE}
+          permalink: /releases/v${VERSION}/
+          downloads:
+            mac_dmg: "${RELEASES_BASE}/v${VERSION}/MalaEditor-${VERSION}-arm64.dmg"
+            mac_dmg_x64: "${RELEASES_BASE}/v${VERSION}/MalaEditor-${VERSION}-x64.dmg"
+            win_exe: "${RELEASES_BASE}/v${VERSION}/MalaEditor-Setup-${VERSION}-x64.exe"
+          ---
+          FRONTMATTER
+
+          # Append changelog section
+          cat /tmp/section.md >> "$POST_FILE"
+
+      - name: Update site.js latestVersion
+        env:
+          VERSION: ${{ steps.info.outputs.version }}
+          DATE: ${{ steps.info.outputs.date }}
+        run: |
+          sed -i "s/latestVersion: '.*'/latestVersion: '${VERSION}'/" src/_data/site.js
+          sed -i "s/latestDate: '.*'/latestDate: '${DATE}'/" src/_data/site.js
+
+      - name: Update changelog page
+        env:
+          VERSION: ${{ steps.info.outputs.version }}
+        run: |
+          # Replace placeholder or regenerate from full CHANGELOG
+          python3 - << 'PYEOF'
+          import re, pathlib
+
+          full = pathlib.Path('/tmp/CHANGELOG.md').read_text()
+          page = pathlib.Path('src/pages/changelog.md')
+
+          header = """---
+          layout: layouts/page.njk
+          title: Changelog
+          permalink: /changelog/
+          ---
+
+          """
+          page.write_text(header + full)
+          PYEOF
+
+      - name: Commit and push
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add src/posts/releases/ src/_data/site.js src/pages/changelog.md
+          git commit -m "release: v${{ steps.info.outputs.version }}"
+          git push
