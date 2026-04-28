@@ -6,6 +6,22 @@ permalink: /changelog/
 
 # mala-editor
 
+## 0.12.2
+
+### Patch Changes
+
+- 53e3954: Fix release workflow not triggering after version tag push
+
+  Switch the versioning job to use a PAT (`VERSIONING_TOKEN`) instead of `GITHUB_TOKEN` when pushing the release commit and tag. GitHub Actions does not trigger downstream workflows from pushes made with `GITHUB_TOKEN`; using a PAT causes the tag push to be attributed to a real user, which correctly fires `release.yml`.
+
+## 0.12.1
+
+### Patch Changes
+
+- ce78a09: Add automated release workflow
+  - Add `release.yml` GitHub Actions workflow: builds macOS and Windows installers on tag push, creates a GitHub Release with changelog notes, uploads artifacts, and dispatches to the website repo to publish a release post
+  - Remove spaces from installer filenames (`MalaEditor-{version}-{arch}.{ext}`) to avoid URL-encoding issues in download links
+
 ## 0.12.0
 
 ### Minor Changes
