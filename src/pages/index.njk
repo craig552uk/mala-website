@@ -7,6 +7,12 @@ permalink: /
 <section class="hero">
   <h1 class="hero-title">Mala Editor</h1>
   <p class="hero-tagline">A distraction-free writing app for long-form writers.</p>
+  <div class="hero-screenshot">
+    <img src="/assets/img/hero-dark.png" alt="Mala Editor screenshot" />
+  </div>
+</section>
+
+<section class="hero">
   <div class="download-grid">
     <a class="download-btn download-btn--primary"
        href="{{ site.releasesBase }}/v{{ site.latestVersion }}/MalaEditor-{{ site.latestVersion }}-arm64.dmg"
@@ -15,14 +21,14 @@ permalink: /
       macOS (Apple Silicon)
       <span class="download-ext">.dmg</span>
     </a>
-    <a class="download-btn"
+    <a class="download-btn download-btn--primary"
        href="{{ site.releasesBase }}/v{{ site.latestVersion }}/MalaEditor-{{ site.latestVersion }}-x64.dmg"
        download>
       <i data-lucide="monitor-down"></i>
       macOS (Intel)
       <span class="download-ext">.dmg</span>
     </a>
-    <a class="download-btn"
+    <a class="download-btn download-btn--primary"
        href="{{ site.releasesBase }}/v{{ site.latestVersion }}/MalaEditor-Setup-{{ site.latestVersion }}-x64.exe"
        download>
       <i data-lucide="monitor-down"></i>
@@ -31,18 +37,6 @@ permalink: /
     </a>
   </div>
   <p class="version-note">
-    Version {{ site.latestVersion }} — <a href="/changelog/">See all releases</a>
+    Version {{ site.latestVersion }} — <a href="/releases/v{{ site.latestVersion }}/">Release Notes</a>
   </p>
-</section>
-
-<section class="latest-release">
-  <h2>Latest release</h2>
-  {% set latestRelease = collections.releases | first %}
-  {% if latestRelease %}
-    <a class="release-card" href="{{ latestRelease.url }}">
-      <span class="release-card-version">v{{ latestRelease.data.version }}</span>
-      <span class="release-card-date">{{ latestRelease.date | readableDate }}</span>
-      <i data-lucide="arrow-right"></i>
-    </a>
-  {% endif %}
 </section>

@@ -181,7 +181,6 @@ hr {
    ============================================================ */
 .hero {
   text-align: center;
-  padding: 4rem 0 3rem;
 }
 
 .hero-title {
@@ -199,6 +198,18 @@ hr {
   margin-top: 1.25rem;
   color: var(--text-dim);
   font-size: 0.9rem;
+}
+
+.hero-screenshot {
+  overflow: hidden;
+  line-height: 0;
+  margin-bottom: 2.5rem;
+}
+
+.hero-screenshot img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* ============================================================
@@ -256,6 +267,45 @@ hr {
 
 .download-btn:hover .download-ext {
   color: inherit;
+}
+
+/* ============================================================
+   Features section
+   ============================================================ */
+.features {
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.feature img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.feature h3 {
+  font-size: 1rem;
+  color: var(--text-head);
+  margin: 0;
+}
+
+.feature p {
+  font-size: 0.9rem;
+  color: var(--text-dim);
+  margin: 0;
+  line-height: 1.6;
 }
 
 /* ============================================================
@@ -389,6 +439,7 @@ hr {
    ============================================================ */
 @media (max-width: 600px) {
   .hero-title { font-size: 2rem; }
+  .features-grid { grid-template-columns: 1fr; }
   .download-grid { flex-direction: column; }
   .download-btn { justify-content: center; }
   .nav-links { gap: 1rem; }
