@@ -55,9 +55,9 @@ jobs:
           date: ${DATE}
           permalink: /releases/v${VERSION}/
           downloads:
-            mac_dmg: "${RELEASES_BASE}/v${VERSION}/MalaEditor-${VERSION}-arm64.dmg"
-            mac_dmg_x64: "${RELEASES_BASE}/v${VERSION}/MalaEditor-${VERSION}-x64.dmg"
-            win_exe: "${RELEASES_BASE}/v${VERSION}/MalaEditor-Setup-${VERSION}-x64.exe"
+            mac_dmg: "${RELEASES_BASE}/v${VERSION}/Mala-${VERSION}-arm64.dmg"
+            mac_dmg_x64: "${RELEASES_BASE}/v${VERSION}/Mala-${VERSION}-x64.dmg"
+            win_exe: "${RELEASES_BASE}/v${VERSION}/Mala-Setup-${VERSION}-x64.exe"
           ---
           FRONTMATTER
 
