@@ -1,5 +1,5 @@
 export default {
-  title: 'Mala Editor',
+  title: 'Mała',
   description: 'A distraction-free writing app for long-form writers.',
   githubRepo: 'https://github.com/craig552uk/mala-editor',
   releasesBase: 'https://github.com/craig552uk/mala-website/releases/download',
