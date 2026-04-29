@@ -6,6 +6,12 @@ permalink: /changelog/
 
 # mala-editor
 
+## 0.14.1
+
+### Patch Changes
+
+- d2bcd8c: Sign releases with Apple Developer ID
+
 ## 0.14.0
 
 ### Minor Changes
