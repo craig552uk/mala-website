@@ -4,6 +4,6 @@ export default {
   githubRepo: 'https://github.com/craig552uk/mala-editor',
   releasesBase: 'https://github.com/craig552uk/mala-website/releases/download',
   // Updated automatically by on-release.yml
-  latestVersion: '0.12.3',
-  latestDate: '2026-04-28T19:13:47Z',
+  latestVersion: '0.13.0',
+  latestDate: '2026-04-29T07:14:36Z',
 }

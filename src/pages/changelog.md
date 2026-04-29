@@ -6,6 +6,12 @@ permalink: /changelog/
 
 # mala-editor
 
+## 0.13.0
+
+### Minor Changes
+
+- 0aa9aba: Add silent auto-update with "Restart to update" prompt in TopBar.
+
 ## 0.12.3
 
 ### Patch Changes
