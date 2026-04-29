@@ -6,6 +6,12 @@ permalink: /changelog/
 
 # mala-editor
 
+## 0.14.3
+
+### Patch Changes
+
+- a871362: Test release
+
 ## 0.14.2
 
 ### Patch Changes
