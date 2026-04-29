@@ -6,6 +6,13 @@ permalink: /changelog/
 
 # mala-editor
 
+## 0.14.0
+
+### Minor Changes
+
+- ece1258: - Renamed "Mala Editor" to "Mała" in UI.
+  - Renamed built release files from "MalaEditor" to "Mala"ß
+
 ## 0.13.2
 
 ### Patch Changes
