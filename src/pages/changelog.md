@@ -6,6 +6,12 @@ permalink: /changelog/
 
 # mala-editor
 
+## 0.14.2
+
+### Patch Changes
+
+- 6f52e03: Reinstate apple release signing after bad merge
+
 ## 0.14.1
 
 ### Patch Changes
