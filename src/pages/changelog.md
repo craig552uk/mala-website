@@ -6,6 +6,27 @@ permalink: /changelog/
 
 # mala-editor
 
+## 0.13.2
+
+### Patch Changes
+
+- 80cfd4d: Merge release pipeline into CI workflow.
+  - Absorb build-mac, build-win, and publish jobs from release.yml into ci.yml
+  - Switch versioning job back to GITHUB_TOKEN — eliminates double CI run on release commits
+  - Gate build/publish jobs on versioning `bumped` output; only run when a version is actually bumped
+  - Build jobs check out the release tag directly to ensure exact versioned code is built
+  - Delete release.yml and retire VERSIONING_TOKEN secret
+
+## 0.13.1
+
+### Patch Changes
+
+- d37f81a: Adds file logger to app.
+
+  Logs are written to the following locations:
+  - on macOS: ~/Library/Logs/{app name}/main.log
+  - on Windows: %USERPROFILE%\AppData\Roaming\{app name}\logs\main.log
+
 ## 0.13.0
 
 ### Minor Changes
