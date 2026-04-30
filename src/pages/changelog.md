@@ -6,6 +6,22 @@ permalink: /changelog/
 
 # mala-editor
 
+## 0.15.0
+
+### Minor Changes
+
+- 8f75663: Organise menu items for consistency with app features
+
+### Patch Changes
+
+- e7451bb: Show pdf toolbar
+- 7701730: Refine editor gutter styles
+- 04866e0: Creating files/folder in a collapsed folder auto-expands the folder
+- 07fa1c2: File search uses the same exclusions as directory explorer
+- 65b7c19: Adds logging for application lifecycle events
+- 408a9c7: Added Apple icon
+- 4c2f246: Handle non-existing recent projects with clean-up
+
 ## 0.14.3
 
 ### Patch Changes
