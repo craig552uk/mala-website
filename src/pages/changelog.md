@@ -6,6 +6,12 @@ permalink: /changelog/
 
 # mala-editor
 
+## 0.15.1
+
+### Patch Changes
+
+- c061720: Fixed 'Toggle Auto Save' menu item not working
+
 ## 0.15.0
 
 ### Minor Changes
