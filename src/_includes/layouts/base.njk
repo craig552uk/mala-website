@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>{% if title %}{{ title }} — {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ site.description }}" />
   <link rel="stylesheet" href="/assets/css/style.css" />
+  <script>
+    (function () {
+      var stored = localStorage.getItem('mala-theme');
+      var pref = stored ||
+        (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
+      document.documentElement.setAttribute('data-theme', pref);
+    })();
+  </script>
 </head>
 <body>
   <header class="site-header">
@@ -15,9 +23,10 @@
         <li><a href="/">Home</a></li>
         <li><a href="/releases/">News</a></li>
         <li>
-          <a href="{{ site.githubRepo }}" target="_blank" rel="noopener">
-            <i data-lucide="github"></i>
-          </a>
+    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark mode">
+      <i data-lucide="sun" class="theme-icon theme-icon--dark"></i>
+      <i data-lucide="moon" class="theme-icon theme-icon--light"></i>
+    </button>
         </li>
       </ul>
     </nav>
@@ -33,6 +42,14 @@
   </footer>
 
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-  <script>lucide.createIcons()</script>
+  <script>
+    lucide.createIcons();
+    document.getElementById('theme-toggle').addEventListener('click', function () {
+      var next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', next);
+      localStorage.setItem('mala-theme', next);
+      lucide.createIcons();
+    });
+  </script>
 </body>
 </html>

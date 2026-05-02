@@ -1,7 +1,8 @@
 /* ============================================================
-   Design tokens — One Dark Pro palette
+   Design tokens — dark theme (One Dark Pro) default
    ============================================================ */
-:root {
+:root,
+[data-theme='dark'] {
   --bg:        #282c34;
   --bg-alt:    #21252b;
   --bg-card:   #2c313c;
@@ -21,6 +22,24 @@
   --radius:    6px;
   --max-w:     860px;
   --gap:       1.5rem;
+}
+
+/* ============================================================
+   Design tokens — light theme (Atom One Light)
+   ============================================================ */
+[data-theme='light'] {
+  --bg:        #fafafa;
+  --bg-alt:    #f0f0f0;
+  --bg-card:   #e8e8e8;
+  --border:    #d3d3d3;
+  --text:      #383a42;
+  --text-dim:  #a0a1a7;
+  --text-head: #e45649;
+  --accent:    #4078f2;
+  --accent-h:  #2963d8;
+  --green:     #50a14f;
+  --yellow:    #c18401;
+  --purple:    #a626a4;
 }
 
 /* ============================================================
@@ -450,3 +469,37 @@ hr {
   .post-list-item time { display: none; }
   .release-card-date { display: none; }
 }
+
+/* ============================================================
+   Theme toggle button
+   ============================================================ */
+.theme-toggle {
+  background: none;
+  border: none;
+  color: var(--text-dim);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.15s;
+  margin-top: 0.5rem;
+}
+
+.theme-toggle:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.theme-toggle svg {
+  width: 15px;
+  height: 15px;
+  display: block;
+}
+
+/* Show sun in dark mode (click → switch to light) */
+/* Show moon in light mode (click → switch to dark) */
+[data-theme='dark']  .theme-icon--light { display: none; }
+[data-theme='light'] .theme-icon--dark  { display: none; }
+
+/* Hero image variants */
+[data-theme='dark']  .hero-img--light { display: none; }
+[data-theme='light'] .hero-img--dark  { display: none; }
