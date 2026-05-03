@@ -6,6 +6,25 @@ permalink: /changelog/
 
 # mala-editor
 
+## 0.16.1
+
+### Patch Changes
+
+- 5a49de8: Fix export file pattern mtching on windows
+- 849022e: Fixed file and folder renamed on Windows
+- 36717eb: Fix progress pattern match on windows
+
+## 0.16.0
+
+### Minor Changes
+
+- e57a4c9: Adds styled chrome on Windows
+
+### Patch Changes
+
+- c63d359: Use CmdOrCtrl+Shift+K keybinding for focus mode
+- d922ba7: Adds tab focus button styles
+
 ## 0.15.1
 
 ### Patch Changes
