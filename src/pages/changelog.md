@@ -6,6 +6,18 @@ permalink: /changelog/
 
 # mala-editor
 
+## 0.17.0
+
+### Minor Changes
+
+- 44b909b: Add Create New Project flow from Welcome page — directory picker, project scaffold writer, pre-seeded layout, and functional form dialog
+- 3796d70: Adds random name generator
+
+### Patch Changes
+
+- 53881fd: Consolidate styles into common UI components
+- 7c914d8: Consolidate project settings into project.json — spellings (customWords, ignoreWords, language) moved from spellings.json; manuscriptFilePattern moved to files.manuscriptPattern; projectPath no longer persisted; legacy ReadSpellings/WriteSpellings IPC channels removed
+
 ## 0.16.1
 
 ### Patch Changes
