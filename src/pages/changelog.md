@@ -6,6 +6,17 @@ permalink: /changelog/
 
 # mala-editor
 
+## 0.18.0
+
+### Minor Changes
+
+- 21b68d9: Live Open Recent Projects menu in native menubar and Windows in-app menu
+
+### Patch Changes
+
+- b577e28: Refactors menus to use common definition
+- 0291c2f: Fix cross-project tab bleed bug
+
 ## 0.17.0
 
 ### Minor Changes
