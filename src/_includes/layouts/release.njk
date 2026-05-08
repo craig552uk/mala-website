@@ -10,17 +10,17 @@ layout: layouts/base.njk
   <section class="download-buttons">
     <h2>Download</h2>
     <div class="download-grid">
-      <a class="download-btn download-btn--primary" href="{{ downloads.mac_dmg }}" download>
+      <a class="download-btn download-btn--primary" href="{{ downloads.mac_dmg }}" data-download-track="true" data-download-extension="dmg" data-download-location="release" data-download-platform="macos-apple-silicon" data-download-version="{{ version }}" download>
         <i data-lucide="monitor-down"></i>
         macOS (Apple Silicon)
         <span class="download-ext">.dmg</span>
       </a>
-      <a class="download-btn download-btn--primary" href="{{ downloads.mac_dmg_x64 }}" download>
+      <a class="download-btn download-btn--primary" href="{{ downloads.mac_dmg_x64 }}" data-download-track="true" data-download-extension="dmg" data-download-location="release" data-download-platform="macos-intel" data-download-version="{{ version }}" download>
         <i data-lucide="monitor-down"></i>
         macOS (Intel)
         <span class="download-ext">.dmg</span>
       </a>
-      <a class="download-btn download-btn--primary" href="{{ downloads.win_exe }}" download>
+      <a class="download-btn download-btn--primary" href="{{ downloads.win_exe }}" data-download-track="true" data-download-extension="exe" data-download-location="release" data-download-platform="windows" data-download-version="{{ version }}" download>
         <i data-lucide="monitor-down"></i>
         Windows
         <span class="download-ext">.exe</span>

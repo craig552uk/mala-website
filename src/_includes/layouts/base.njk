@@ -56,6 +56,20 @@
       localStorage.setItem('mala-theme', next);
       lucide.createIcons();
     });
+
+    document.addEventListener('click', function (event) {
+      var link = event.target.closest('a[data-download-track]');
+      if (!link || typeof window.gtag !== 'function') return;
+
+      window.gtag('event', 'download_click', {
+        link_url: link.href,
+        file_extension: link.dataset.downloadExtension || '',
+        platform: link.dataset.downloadPlatform || '',
+        version: link.dataset.downloadVersion || '',
+        location: link.dataset.downloadLocation || '',
+        transport_type: 'beacon'
+      });
+    });
   </script>
 </body>
 </html>
