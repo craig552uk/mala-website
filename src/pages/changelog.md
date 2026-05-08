@@ -6,6 +6,15 @@ permalink: /changelog/
 
 # mala-editor
 
+## 0.18.1
+
+### Patch Changes
+
+- 5b41538: Update button styles to match theme
+- 562e878: Changed explorer keybindings to ENTER to rename and SPACE to open
+- 77cc6f8: Wordcount on exported manuscript rounds to nearest 100 if total is less than 1000
+- 0a95249: Renaming a file updates the open editor tab rather than opening a new one
+
 ## 0.18.0
 
 ### Minor Changes
