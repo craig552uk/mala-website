@@ -6,6 +6,17 @@ permalink: /changelog/
 
 # mala-editor
 
+## 0.19.0
+
+### Minor Changes
+
+- a553fd7: Add an MCP server with read-only editorial tools, manuscript streaming, MCP status indicator UI, and agent onboarding instructions.
+- 1966259: Add MCP write tools (save_file, create_file, replace_in_file) gated behind mcpAllowWrites.
+
+### Patch Changes
+
+- d4eac7f: Add footnote support to manuscript JSON export and DOCX export, including structured footnote references, page-bottom DOCX footnotes, and non-blocking warning behavior for invalid footnotes.
+
 ## 0.18.1
 
 ### Patch Changes
