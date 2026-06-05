@@ -6,6 +6,14 @@ permalink: /changelog/
 
 # mala-editor
 
+## 0.19.1
+
+### Patch Changes
+
+- e6d0392: Fix DOCX footnote export compatibility for Microsoft Word by normalising footnote references/definitions at export time and avoiding malformed repeated footnote IDs.
+- a20a8b0: Fix packaged-app MCP startup to run the MCP child in Node mode, preventing a second Mała app instance from opening when MCP is enabled.
+- bbcde39: Package the MCP runtime with release builds and unpack MCP dependencies so external MCP clients can execute the packaged entrypoint directly.
+
 ## 0.19.0
 
 ### Minor Changes
